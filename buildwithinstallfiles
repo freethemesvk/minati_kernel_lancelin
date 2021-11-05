@@ -14,10 +14,10 @@ BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 PATH="${KERNEL_DIR}/clang/bin:${KERNEL_DIR}/gcc/bin:${KERNEL_DIR}/gcc32/bin:${PATH}"
 export KBUILD_COMPILER_STRING="$(${KERNEL_DIR}/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 export ARCH=arm64
-export KBUILD_BUILD_USER=techyminati
-export KBUILD_BUILD_HOST=xenodrome
+export KBUILD_BUILD_USER=c4md
+export KBUILD_BUILD_HOST=kali
 
-make O=out ARCH=arm64 lancelot_defconfig
+make O=out ARCH=arm64 lancelot_nethunter_defconfig
 
 # Compile plox
 compile() {
