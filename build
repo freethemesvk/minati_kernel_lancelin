@@ -10,6 +10,7 @@ export ARCH=arm64
 export KBUILD_BUILD_USER=c4md
 export KBUILD_BUILD_HOST=kali
 
+cd ../
 git clone https://android.googlesource.com/platform/system/libufdt --depth 1
 git clone https://android.googlesource.com/platform/external/dtc --depth 1
 cat > Makefile <<'EOF'
@@ -26,7 +27,11 @@ EOF
 
 make ufdt_apply_overlay
 
+cd minati_kernel_lancelin
+
 make O=out ARCH=arm64 lancelot_defconfig
+
+make menuconfig
 
 # Compile plox
 compile() {
